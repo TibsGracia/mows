@@ -1,0 +1,46 @@
+
+    .form-container {
+      padding: 1%;
+      background: #ffffff;
+      border: 9px solid #f2f2f2;   
+      margin: 5px;         
+    }
+
+
+.publish, .subscribe, .broker{
+    float: left;
+    height: 400px;
+    width: 360px;
+}
+
+table {
+    width: 90%;
+}
+
+td, th {
+    width: 20px;
+    text-align: center;
+}
+
+h3, h1 {
+  text-align: center;
+}
+
+h3 {
+    font-family: cursive
+}
+
+label {
+    font-size: 20px
+}
+
+h1 {
+    background-color: rgba(45, 213, 255, 0.671);
+    padding: 10px;
+    font-family: fantasy
+}
+
+input, textarea , button
+{
+  width: 100%;
+} 

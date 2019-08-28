@@ -1,17 +1,45 @@
 // basic functionalities
-client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")
-client.subscribe("mqtt/demo")
 
-client.on("connect", function(){
-    console.log("Successfully connected");
+var subTopic = "mytest";
+$(document).ready(function () {
+  $("#btnConnect").click(function (e) {
+    e.preventDefault();
+    client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")//broker address
+  
+    client.on("connect", function () {
+      $('#status').val("Successfully connected");
+    });
+
+    client.on("message", function (topic, payload) {
+      $("#tblMessage tbody").append("<tr>" +
+        "<td>" + topic + "</td>" +
+        "<td>" + payload + "</td>" +
+        "<td>" + moment().format('MMMM Do YYYY, h:mm:ss a') + "</td>");
+    });
+
+    $("#btnPublish").click(function (e) {
+      e.preventDefault();
+      client.publish(subTopic, $('#payload').val());
+    });
+  
+    $("#btnSubscribe").click(function (e) {
+      e.preventDefault();
+      subTopic = $('#Stopic').val();
+      client.subscribe(subTopic);
+    });
+
+    $("#btnDConnect").click(function (e) {
+      e.preventDefault();
+      $('#status').val("You are disconnected");
+      client.end();
+    });
+
+    $("#btnUnsubscribe").click(function (er) {
+      client.unsubscribe(subTopic)
+    });
+  });
 })
 
-client.on("message", function (topic, payload) {
-  console.log([topic, payload].join(": "));
-  client.end();
-})
-
-client.publish("mqtt/demo", "hello world!")
 
 // // advance functionalities
 // client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")

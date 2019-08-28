@@ -1,11 +1,82 @@
+<!DOCTYPE html>
 <html>
+
 <head>
   <title>mows</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="myStyle.css">
+
 </head>
-<body>
-  <h1>MQTT</h1>
-  <p>My MQTT Web App</p>
+
+<body class="container-fluid">
+  <h1>MQTT WEB APPLICATION</h1><br>
+  <div class="row">
+    <div class="col">
+      <div class="form-container broker col">
+        <h3>BROKER</h3>
+        <form method="post" id="reused_form">
+          <label for="address">Address:</label>
+          <input id="address" type="text" name="address" value="ws://broker.hivemq.com:8000/mqtt" required
+            maxlength="50">
+          <button type="button" class="button-primary" id="btnConnect">Connect</button>
+          <button type="button" class="button-primary" id="btnDConnect">Disconnect</button>
+          <label for="status">Status:</label>
+          <input id="status" type="text" name="status" required maxlength="50">
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-container publish col">
+        <h3>PUBLISH</h3>
+        <form method="post" id="reused_form">
+          <label for="topic">Topic:</label>
+          <input id="topic" type="text" name="topic" required maxlength="50">
+          <label for="payload">Payload:</label>
+          <input id="payload" type="text" name="payload" required maxlength="50">
+          <button type="button" class="button-primary" id="btnPublish">Publish</button>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-container subscribe col">
+        <h3>SUBSCRIBE</h3>
+        <form method="post" id="reused_form">
+          <label for="topic">Topic:</label>
+          <input id="Stopic" type="text" name="topic" required maxlength="50">
+          <button type="button" class="button-primary" id="btnSubscribe">Subscribe</button>
+          <button type="button" class="button-primary" id="btnUnsubscribe">Unsubscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <center>
+    <div class="form-container table">
+      <table id="tblMessage">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Payload</th>
+            <th>Time Stamp</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </center>
+
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"
+  integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
+
 </html>
