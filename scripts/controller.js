@@ -7,7 +7,7 @@ $(document).ready(function () {
     client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")//broker address
   
     client.on("connect", function () {
-      $('#status').val("Successfully connected");
+      $('#status').val("Successfully Connected!").css("color","green");
     });
 
     client.on("message", function (topic, payload) {
@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     $("#btnPublish").click(function (e) {
       e.preventDefault();
-      client.publish(subTopic, $('#payload').val());
+      client.publish($('#topic').val(), $('#payload').val());
     });
   
     $("#btnSubscribe").click(function (e) {
@@ -30,12 +30,13 @@ $(document).ready(function () {
 
     $("#btnDConnect").click(function (e) {
       e.preventDefault();
-      $('#status').val("You are disconnected");
+      $('#status').val("You are disconnected!").css("color","red");
       client.end();
     });
 
     $("#btnUnsubscribe").click(function (er) {
       client.unsubscribe(subTopic)
+      $("#Stopic").val("");
     });
   });
 })

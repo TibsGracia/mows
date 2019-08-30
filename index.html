@@ -5,7 +5,7 @@
   <title>mows</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -14,27 +14,31 @@
 
 </head>
 
-<body class="container-fluid">
-  <h1>MQTT WEB APPLICATION</h1><br>
+<body>
+  <div class="imagebg"></div>
+  <h1>MQTT WEB APPLICATION</h1>
+
   <div class="row">
-    <div class="col">
-      <div class="form-container broker col">
+
+    <div class="column">
+      <div class="form-container">
         <h3>BROKER</h3>
-        <form method="post" id="reused_form">
+        <form method="post">
           <label for="address">Address:</label>
           <input id="address" type="text" name="address" value="ws://broker.hivemq.com:8000/mqtt" required
             maxlength="50">
           <button type="button" class="button-primary" id="btnConnect">Connect</button>
           <button type="button" class="button-primary" id="btnDConnect">Disconnect</button>
           <label for="status">Status:</label>
-          <input id="status" type="text" name="status" required maxlength="50">
+          <input id="status" type="text" name="status" required maxlength="50" disabled>
         </form>
       </div>
     </div>
-    <div class="col">
-      <div class="form-container publish col">
+
+    <div class="column">
+      <div class="form-container">
         <h3>PUBLISH</h3>
-        <form method="post" id="reused_form">
+        <form method="post">
           <label for="topic">Topic:</label>
           <input id="topic" type="text" name="topic" required maxlength="50">
           <label for="payload">Payload:</label>
@@ -43,34 +47,36 @@
         </form>
       </div>
     </div>
-    <div class="col">
-      <div class="form-container subscribe col">
+
+    <div class="column">
+      <div class="form-container ">
         <h3>SUBSCRIBE</h3>
-        <form method="post" id="reused_form">
-          <label for="topic">Topic:</label>
-          <input id="Stopic" type="text" name="topic" required maxlength="50">
+        <form method="post">
+          <label for="Stopic">Topic:</label>
+          <input id="Stopic" type="text" name="Stopic" required maxlength="50">
           <button type="button" class="button-primary" id="btnSubscribe">Subscribe</button>
           <button type="button" class="button-primary" id="btnUnsubscribe">Unsubscribe</button>
         </form>
       </div>
     </div>
+
   </div>
+
+  <div class="table">
+    <h2>Messages</h2>
+    <table id="tblMessage">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Payload</th>
+          <th>Time Stamp</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
   <br><br>
-  <center>
-    <div class="form-container table">
-      <table id="tblMessage">
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>Payload</th>
-            <th>Time Stamp</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </center>
 
 
 </body>
