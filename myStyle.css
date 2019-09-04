@@ -1,4 +1,3 @@
-
 body {
 	background-color: #000;
 }
@@ -35,54 +34,24 @@ body {
 	width: 33.33%;
 	margin: auto;
 	padding: 10px;
-	/* height: 300px; Should be removed. Only for demonstration */
   }
 
 .form-container {
-	/* width: 300px; */
 	height: 400px;
 	margin:auto;
 	border-radius: 25px;
-	/* margin-left: 30px; */
 	margin-top:50px;
 	margin-bottom: 50px;
 	padding: 30px;
 	background-color: #fff;
 	position: relative;
 	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
-	/* position: absolute; */
-	/* top: 50%;
-	left: 50%;
-
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%); */
 }
-/* @media  only screen and (min-device-width: 768px) 
-{ */
-    /* .form-container {
-      padding: 1%;
-      background: #ffffff;
-      border: 9px solid #f2f2f2; 
-      margin: 5px;  
-               
-    } */
-  /* } */
 
-/* .publish, .subscribe, .broker{
-    float: left;
-    height: 400px;
-    width: 360px;
-} */
-
-.table {
+.table  {
 	width: 80%;
 	margin:auto;
 	border-radius: 25px;
-	/* margin-left: 30px; */
-	/* margin-top:100px; */
-	/* margin-bottom: 30px; */
 	padding: 30px;
 	background-color: #fff;
 	position: relative;
@@ -96,6 +65,9 @@ td, th {
 
 h3, h1, h2 {
   text-align: center;
+}
+h1{
+	color: white;
 }
 
 h3 {
@@ -118,3 +90,18 @@ input, textarea , button
 {
   width: 100%;
 } 
+#close1, #close2{
+	width: 10%;
+	float: right;
+}
+a {
+	margin-top: 30px;
+	float: right;
+}
+.modal-content{
+	border-radius: 25px;
+	padding:20px 20px 10px 20px ;
+}
+thead{
+	background-color: #85d7f2;
+}
